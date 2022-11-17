@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="ConfigBase\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Petshop.Borders\Petshop.Borders.csproj" />
+    <ProjectReference Include="..\Petshop.Shared\Petshop.Shared.csproj" />
+  </ItemGroup>
+
+</Project>

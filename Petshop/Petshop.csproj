@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Petshop.Borders\Petshop.Borders.csproj" />
+    <ProjectReference Include="..\Petshop.Repositories\Petshop.Repositories.csproj" />
+    <ProjectReference Include="..\Petshop.Shared\Petshop.Shared.csproj" />
+    <ProjectReference Include="..\Petshop.UseCases\Petshop.UseCases.csproj" />
+  </ItemGroup>
+
+</Project>
