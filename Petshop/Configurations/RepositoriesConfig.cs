@@ -2,7 +2,7 @@
 using Petshop.Borders.Repositories.Contracts;
 using Petshop.Repositories;
 
-namespace Petshop.Api.Configurations
+namespace Petshop.Configurations
 {
     public class RepositoriesConfig
     {

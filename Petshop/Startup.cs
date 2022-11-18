@@ -1,4 +1,5 @@
-﻿using Petshop.Configurations;
+﻿using Petshop.Api.Configurations;
+using Petshop.Configurations;
 
 namespace Petshop
 {
@@ -19,8 +20,9 @@ namespace Petshop
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
-            //RepositoriesConfig.ConfigureServices(services);
-            //UseCaseConfig.ConfigureServices(services);
+            RepositoriesConfig.ConfigureServices(services);
+            UseCaseConfig.ConfigureServices(services);
+            AutoMapperConfig.ConfigureServices(services);
         }
 
         public void Configure(WebApplication app, IWebHostEnvironment environment)
