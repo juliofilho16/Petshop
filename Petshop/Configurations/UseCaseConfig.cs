@@ -30,6 +30,10 @@ namespace Petshop.Configurations
             services.AddScoped<ICreateClienteUseCase, CreateClienteUseCase>();
             #endregion
 
+		 #region [Especie]
+            services.AddScoped<IGetListEspeciesUseCase, GetListEspeciesUseCase>();
+            #endregion
+
         }
     }
 }
