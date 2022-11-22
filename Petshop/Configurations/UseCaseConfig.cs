@@ -16,6 +16,8 @@ using Petshop.UseCases.Raca;
 using Petshop.UseCases.Pet;
 using Petshop.Borders.UseCase.Especie;
 using Petshop.UseCases.Especie;
+using Petshop.Borders.UseCase.Servico;
+using Petshop.UseCases.Servico;
 
 namespace Petshop.Configurations
 {
