@@ -1,9 +1,21 @@
 ﻿using Petshop.Borders.UseCase.Categoria;
 using Petshop.Borders.UseCase.Cidade;
 using Petshop.Borders.UseCase.Cliente;
+using Petshop.Borders.UseCase.Endereco;
+using Petshop.Borders.UseCase.Pagamento;
+using Petshop.Borders.UseCase.Pet;
+using Petshop.Borders.UseCase.Produto;
+using Petshop.Borders.UseCase.Raca;
 using Petshop.UseCases.Categoria;
 using Petshop.UseCases.Cidade;
 using Petshop.UseCases.Cliente;
+using Petshop.UseCases.Endereco;
+using Petshop.UseCases.Pagamento;
+using Petshop.UseCases.Produto;
+using Petshop.UseCases.Raca;
+using Petshop.UseCases.Pet;
+using Petshop.Borders.UseCase.Especie;
+using Petshop.UseCases.Especie;
 
 namespace Petshop.Configurations
 {
@@ -30,10 +42,43 @@ namespace Petshop.Configurations
             services.AddScoped<ICreateClienteUseCase, CreateClienteUseCase>();
             #endregion
 
-		 #region [Especie]
+            #region [Especie]
             services.AddScoped<IGetListEspeciesUseCase, GetListEspeciesUseCase>();
             #endregion
 
+            #region [Raca]
+            services.AddScoped<IGetListRacasUseCase, GetListRacaUseCase>();
+            #endregion
+
+            #region [Pet]
+            services.AddScoped<IUpdatePetUseCase, UpdatePetUseCase>();
+            services.AddScoped<IGetListPetsUseCase, GetListPetsUseCase>();
+            services.AddScoped<IGetPetUseCase, GetPetUseCase>();
+            services.AddScoped<ICreatePetUseCase, CreatePetUseCase>();
+            #endregion
+
+            #region [Endereco]
+            services.AddScoped<IUpdateEnderecoUseCase, UpdateEnderecoUseCase>();
+            services.AddScoped<IGetListEnderecosUseCase, GetListEnderecosUseCase>();
+            services.AddScoped<IGetEnderecoUseCase, GetEnderecoUseCase>();
+            services.AddScoped<ICreateEnderecoUseCase, CreateEnderecoUseCase>();
+            services.AddScoped<IDeleteEnderecoUseCase, DeleteEnderecoUseCase>();
+            #endregion
+
+            #region [Produto]
+            services.AddScoped<IUpdateProdutoUseCase, UpdateProdutoUseCase>();
+            services.AddScoped<IGetListProdutosUseCase, GetListProdutosUseCase>();
+            services.AddScoped<IGetProdutoUseCase, GetProdutoUseCase>();
+            services.AddScoped<ICreateProdutoUseCase, CreateProdutoUseCase>();
+            services.AddScoped<IDeleteProdutoUseCase, DeleteProdutoUseCase>();
+            #endregion
+
+            #region [Pagamento]
+            services.AddScoped<IUpdatePagamentoUseCase, UpdatePagamentoUseCase>();
+            services.AddScoped<IGetListPagamentosUseCase, GetListPagamentosUseCase>();
+            services.AddScoped<ICreatePagamentoUseCase, CreatePagamentoUseCase>();
+            services.AddScoped<IDeletePagamentoUseCase, DeletePagamentoUseCase>();
+            #endregion
         }
     }
 }
