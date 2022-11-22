@@ -14,4 +14,8 @@
     <ProjectReference Include="..\Petshop.Borders\Petshop.Borders.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Servico\" />
+  </ItemGroup>
+
 </Project>
