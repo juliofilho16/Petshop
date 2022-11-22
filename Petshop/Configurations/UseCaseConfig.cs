@@ -79,6 +79,15 @@ namespace Petshop.Configurations
             services.AddScoped<ICreatePagamentoUseCase, CreatePagamentoUseCase>();
             services.AddScoped<IDeletePagamentoUseCase, DeletePagamentoUseCase>();
             #endregion
+                
+            #region [Servico]
+            services.AddScoped<IUpdateServicoUseCase, UpdateServicoUseCase>();
+            services.AddScoped<IGetListServicosUseCase, GetListServicosUseCase>();
+            services.AddScoped<IGetServicoUseCase, GetServicoUseCase>();
+            services.AddScoped<ICreateServicoUseCase, CreateServicoUseCase>();
+            services.AddScoped<IDeleteServicoUseCase, DeleteServicoUseCase>();
+            services.AddScoped<IAddProdutoUseCase, AddProdutoUseCase>();
+            #endregion
         }
     }
 }
