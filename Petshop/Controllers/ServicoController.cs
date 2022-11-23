@@ -70,7 +70,7 @@ namespace Petshop.Api.Controllers
         }
 
         [HttpPost]
-        [Route("AddProduto/{id}/{idProduto}")]
+        [Route("produto/{id}/{idProduto}")]
         public IActionResult AddProduto(int id, int idProduto)
         {
             var request = new UseCaseRequest<AddProdutoRequest>();
