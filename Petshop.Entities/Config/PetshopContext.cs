@@ -26,6 +26,7 @@ namespace Petshop.Entities.Config
         public virtual DbSet<Especie> Especie { get; set; }
         public virtual DbSet<Estado> Estado { get; set; }
         public virtual DbSet<Funcionario> Funcionario { get; set; }
+        public virtual DbSet<Fornecedores> Fornecedores { get; set; }
         public virtual DbSet<PagCartao> PagCartao { get; set; }
         public virtual DbSet<PagDinheiro> PagDinheiro { get; set; }
         public virtual DbSet<Pagamento> Pagamento { get; set; }

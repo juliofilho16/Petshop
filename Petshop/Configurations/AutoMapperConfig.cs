@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Fornecedoresshop.Borders.Mappings;
 using Petshop.Borders.Mappings;
 using Petshop.Entities.EntitiesContext;
 using Produtoshop.Borders.Mappings;
@@ -25,6 +26,7 @@ namespace Petshop.Api.Configurations
                 cfg.AddProfile(new RacaProfile());
                 cfg.AddProfile(new ServicoProdutoProfile());
                 cfg.AddProfile(new ServicoProfile());
+                cfg.AddProfile(new FornecedoresProfile());
                 
             });
             var mapper = mapperConfig.CreateMapper();

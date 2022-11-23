@@ -1,25 +1,27 @@
 ﻿using Petshop.Borders.UseCase.Categoria;
 using Petshop.Borders.UseCase.Cidade;
 using Petshop.Borders.UseCase.Cliente;
+using Petshop.Borders.UseCase.Especie;
 using Petshop.Borders.UseCase.Endereco;
-using Petshop.Borders.UseCase.Pagamento;
 using Petshop.Borders.UseCase.Pet;
-using Petshop.Borders.UseCase.Produto;
 using Petshop.Borders.UseCase.Raca;
 using Petshop.UseCases.Categoria;
 using Petshop.UseCases.Cidade;
 using Petshop.UseCases.Cliente;
-using Petshop.UseCases.Endereco;
-using Petshop.UseCases.Pagamento;
-using Petshop.UseCases.Produto;
-using Petshop.UseCases.Raca;
-using Petshop.UseCases.Pet;
-using Petshop.Borders.UseCase.Especie;
 using Petshop.UseCases.Especie;
+using Petshop.UseCases.Pet;
+using Petshop.UseCases.Raca;
+using Petshop.UseCases.Endereco;
+using Petshop.Borders.UseCase.Produto;
+using Petshop.UseCases.Produto;
 using Petshop.Borders.UseCase.Servico;
 using Petshop.UseCases.Servico;
+using Petshop.Borders.UseCase.Pagamento;
+using Petshop.UseCases.Pagamento;
+using Petshop.Borders.UseCase.Fornecedores;
+using Petshop.UseCases.Fornecedores;
 
-namespace Petshop.Configurations
+namespace Petshop.Api.Configurations
 {
     public class UseCaseConfig
     {
@@ -46,7 +48,7 @@ namespace Petshop.Configurations
 
             #region [Especie]
             services.AddScoped<IGetListEspeciesUseCase, GetListEspeciesUseCase>();
-            #endregion
+            #endregion 
 
             #region [Raca]
             services.AddScoped<IGetListRacasUseCase, GetListRacaUseCase>();
@@ -81,7 +83,7 @@ namespace Petshop.Configurations
             services.AddScoped<ICreatePagamentoUseCase, CreatePagamentoUseCase>();
             services.AddScoped<IDeletePagamentoUseCase, DeletePagamentoUseCase>();
             #endregion
-                
+
             #region [Servico]
             services.AddScoped<IUpdateServicoUseCase, UpdateServicoUseCase>();
             services.AddScoped<IGetListServicosUseCase, GetListServicosUseCase>();
@@ -89,6 +91,14 @@ namespace Petshop.Configurations
             services.AddScoped<ICreateServicoUseCase, CreateServicoUseCase>();
             services.AddScoped<IDeleteServicoUseCase, DeleteServicoUseCase>();
             services.AddScoped<IAddProdutoUseCase, AddProdutoUseCase>();
+            #endregion
+
+            #region [Fornecedor]
+            services.AddScoped<IUpdateFornecedoresUseCase, UpdateFornecedoresUseCase>();
+            services.AddScoped<IGetListFornecedoresUseCase, GetListFornecedoressUseCase>();
+            services.AddScoped<IGetFornecedorUseCase, GetFornecedoresUseCase>();
+            services.AddScoped<ICreateFornecedorUseCase, CreateFornecedoresUseCase>();
+            services.AddScoped<IDeleteFornecedorUseCase, DeleteFornecedorUseCase>();
             #endregion
         }
     }

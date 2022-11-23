@@ -2,7 +2,7 @@
 using Petshop.Borders.Repositories.Contracts;
 using Petshop.Repositories;
 
-namespace Petshop.Configurations
+namespace Petshop.Api.Configurations
 {
     public class RepositoriesConfig
     {
@@ -20,6 +20,7 @@ namespace Petshop.Configurations
             services.AddScoped<IProdutoRepository, ProdutoRepository>();
             services.AddScoped<IRacaRepository, RacaRepository>();
             services.AddScoped<IServicoRepository, ServicoRepository>();
+            services.AddScoped<IFornecedoresRepository, FornecedoresRepository>();
         }
     }
 }
