@@ -51,7 +51,7 @@ namespace Petshop.Api.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(int idPessoa, [FromBody] CreateCategoriaDto Categoria)
+        public IActionResult Create([FromBody] CreateCategoriaDto Categoria)
         {
             var request = new UseCaseRequest<CreateCategoriaDto>();
             request.RequestValue = Categoria;

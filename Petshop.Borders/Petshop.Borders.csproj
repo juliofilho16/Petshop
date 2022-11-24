@@ -13,7 +13,6 @@
     <Folder Include="Repositories\Contracts\" />
     <Folder Include="Repositories\NovaPasta\" />
     <Folder Include="Repositories\ScriptsSQL\" />
-    <Folder Include="UseCase\" />
   </ItemGroup>
 
   <ItemGroup>

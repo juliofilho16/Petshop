@@ -20,6 +20,8 @@ using Petshop.Borders.UseCase.Pagamento;
 using Petshop.UseCases.Pagamento;
 using Petshop.Borders.UseCase.Fornecedores;
 using Petshop.UseCases.Fornecedores;
+using Petshop.Borders.UseCase.Funcionario;
+using Petshop.UseCases.Funcionario;
 
 namespace Petshop.Api.Configurations
 {
@@ -44,6 +46,7 @@ namespace Petshop.Api.Configurations
             services.AddScoped<IGetListClientesUseCase, GetListClientesUseCase>();
             services.AddScoped<IGetClienteUseCase, GetClienteUseCase>();
             services.AddScoped<ICreateClienteUseCase, CreateClienteUseCase>();
+            services.AddScoped<IDeleteClienteUseCase, DeleteClienteUseCase>();
             #endregion
 
             #region [Especie]
@@ -99,6 +102,14 @@ namespace Petshop.Api.Configurations
             services.AddScoped<IGetFornecedorUseCase, GetFornecedoresUseCase>();
             services.AddScoped<ICreateFornecedorUseCase, CreateFornecedoresUseCase>();
             services.AddScoped<IDeleteFornecedorUseCase, DeleteFornecedorUseCase>();
+            #endregion
+
+            #region [Funcionario]
+            services.AddScoped<IGetFuncionarioUseCase, GetFuncionarioUseCase>();
+            services.AddScoped<IGetListFuncionariosUseCase, GetListFuncionariosUseCase>();
+            services.AddScoped<IUpdateFuncionarioUseCase, UpdateFuncionarioUseCase>();
+            services.AddScoped<ICreateFuncionarioUseCase, CreateFuncionarioUseCase>();
+            services.AddScoped<IDeleteFuncionarioUseCase, DeleteFuncionarioUseCase>();
             #endregion
         }
     }

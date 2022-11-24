@@ -19,7 +19,7 @@ namespace Petshop.Repositories
             _pessoaRepository = pessoaRepository;
         }
 
-        private Funcionario GetEntityById(int id)
+        private Funcionario _GetEntityById(int id)
         {
             return Contexto.Funcionario.Where(a => a.Id == id).Include(b => b.IdPessoaNavigation).First();
         }
@@ -48,7 +48,7 @@ namespace Petshop.Repositories
         }
         public ReadFuncionarioDto GetFuncionario(int idFuncionario)
         {
-            var entity = GetEntityById(idFuncionario);
+            var entity = _GetEntityById(idFuncionario);
             if (entity != null)
             {
                 return entity.toReadFuncionarioDto();
@@ -69,7 +69,7 @@ namespace Petshop.Repositories
         }
         public void UpdateFuncionario(int idFuncionario, UpdateFuncionarioDto updateFuncionarioDto)
         {
-            Funcionario entity = GetEntityById(idFuncionario);
+            Funcionario entity = _GetEntityById(idFuncionario);
 
             if (entity == null)
             {
@@ -85,6 +85,24 @@ namespace Petshop.Repositories
                 Edit(entity);
                 scope.Complete();
             }
+        }
+        public void DeleteFuncionario(int idFuncionario)
+        {
+            Funcionario entity = _GetEntityById(idFuncionario);
+            var pessoa = Contexto.Funcionario.Where(a => a.Id == entity.IdPessoa).FirstOrDefault();
+
+            if (entity == null || pessoa == null)
+            {
+                throw new Exception("Funcionario não encontrado");
+            }
+
+            using (var scope = new TransactionScope(TransactionScopeOption.RequiresNew))
+            {
+                Delete(pessoa!);
+                Delete(entity!);
+                scope.Complete();
+            }
+
         }
     }
 

@@ -8,5 +8,6 @@ namespace Petshop.Borders.Repositories.Contracts
         ReadFuncionarioDto GetFuncionario(int idFuncionario);
         int CreateFuncionario(CreateFuncionarioDto createFuncionarioDto);
         void UpdateFuncionario(int idFuncionario, UpdateFuncionarioDto updateFuncionarioDto);
+        void DeleteFuncionario(int idFuncionario);
     }
 }

@@ -86,6 +86,24 @@ namespace Petshop.Repositories
                 scope.Complete();
             }
         }
+        public void DeleteCliente(int idCliente)
+        {
+            Cliente entity = _GetEntityById(idCliente);
+            var pessoa = Contexto.Cliente.Where(a => a.Id == entity.IdPessoa).FirstOrDefault();
+
+            if (entity == null || pessoa == null)
+            {
+                throw new Exception("Cliente não encontrado");
+            }
+
+            using (var scope = new TransactionScope(TransactionScopeOption.RequiresNew))
+            {
+                Delete(pessoa!);
+                Delete(entity!);
+                scope.Complete();
+            }
+
+        }
     }
 
 }

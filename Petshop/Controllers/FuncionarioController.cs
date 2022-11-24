@@ -3,6 +3,7 @@ using Petshop.Borders.Dtos.Repositories.Funcionario;
 using Petshop.Borders.Dtos.UseCase.Common;
 using Petshop.Borders.Shared;
 using Petshop.Borders.UseCase.Funcionario;
+using Petshop.Borders.UseCase.Funcionario;
 
 namespace Petshop.Controllers
 {
@@ -14,13 +15,15 @@ namespace Petshop.Controllers
         private readonly IGetListFuncionariosUseCase _getListFuncionariosUseCase;
         private readonly IGetFuncionarioUseCase _getFuncionarioUseCase;
         private readonly ICreateFuncionarioUseCase _createFuncionarioUseCase;
+        private readonly IDeleteFuncionarioUseCase _deleteFuncionarioUseCase;
 
-        public FuncionarioController(IUpdateFuncionarioUseCase updateFuncionarioUseCase, IGetListFuncionariosUseCase getListFuncionariosUseCase, IGetFuncionarioUseCase getFuncionarioUseCase, ICreateFuncionarioUseCase createFuncionarioUseCase)
+        public FuncionarioController(IUpdateFuncionarioUseCase updateFuncionarioUseCase, IGetListFuncionariosUseCase getListFuncionariosUseCase, IGetFuncionarioUseCase getFuncionarioUseCase, ICreateFuncionarioUseCase createFuncionarioUseCase, IDeleteFuncionarioUseCase deleteFuncionarioUseCase)
         {
             _updateFuncionarioUseCase = updateFuncionarioUseCase;
             _getListFuncionariosUseCase = getListFuncionariosUseCase;
             _getFuncionarioUseCase = getFuncionarioUseCase;
             _createFuncionarioUseCase = createFuncionarioUseCase;
+            _deleteFuncionarioUseCase = deleteFuncionarioUseCase;
         }
 
         [HttpGet]
@@ -61,6 +64,16 @@ namespace Petshop.Controllers
 
             var result = _updateFuncionarioUseCase.Execute(request);
             if (result == null) return NotFound();
+            return Ok(result);
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            var request = new UseCaseRequest<int>();
+            request.RequestValue = id;
+            var result = _deleteFuncionarioUseCase.Execute(request);
+            if (!result.Success) return NotFound(result);
             return Ok(result);
         }
     }

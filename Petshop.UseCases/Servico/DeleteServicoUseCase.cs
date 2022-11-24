@@ -1,4 +1,5 @@
-﻿using Petshop.Borders.Repositories.Contracts;
+﻿using Microsoft.Data.SqlClient;
+using Petshop.Borders.Repositories.Contracts;
 using Petshop.Borders.Shared;
 using Petshop.Borders.UseCase.Servico;
 
@@ -25,9 +26,9 @@ namespace Petshop.UseCases.Servico
                 _servicoRepository.DeleteServico(request.RequestValue);
                 response.SetResult(null);
             }
-            catch (Exception ex)
+            catch 
             {
-                response.SetError(ex.Message, null);
+                response.SetError("Não foi possível deletar o serviço!" , null);
             }
 
             return response;

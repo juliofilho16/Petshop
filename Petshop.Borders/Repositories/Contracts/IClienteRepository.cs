@@ -13,5 +13,6 @@ namespace Petshop.Borders.Repositories.Contracts
         ReadClienteDto GetCliente(int idCliente);
         int CreateCliente(CreateClienteDto createClienteDto);
         void UpdateCliente(int idCliente, UpdateClienteDto updateClienteDto);
+        void DeleteCliente(int idCliente);
     }
 }

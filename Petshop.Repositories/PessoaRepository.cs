@@ -53,5 +53,16 @@ namespace Petshop.Repositories
             _mapper.Map(updatePessoaDto, entity);
             Edit(entity);
         }
+        public void DeletePessoa(int idPessoa)
+        {
+            Pessoa? entity = GetById<Pessoa>(idPessoa);
+
+            if (entity == null)
+            {
+                throw new Exception("Pessoa não encontrado");
+            }
+
+            Delete(entity!);
+        }
     }
 }

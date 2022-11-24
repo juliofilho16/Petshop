@@ -4,6 +4,7 @@ using Petshop.Borders.Dtos.UseCase.Common;
 using Petshop.Borders.Shared;
 using Petshop.Borders.UseCase.Cidade;
 using Petshop.Borders.UseCase.Cliente;
+using Petshop.Borders.UseCase.Cliente;
 
 namespace Petshop.Api.Controllers
 {
@@ -15,13 +16,15 @@ namespace Petshop.Api.Controllers
         private readonly IGetListClientesUseCase _getListClientesUseCase;
         private readonly IGetClienteUseCase _getClienteUseCase;
         private readonly ICreateClienteUseCase _createClienteUseCase;
+        private readonly IDeleteClienteUseCase _deleteClienteUseCase;
 
-        public ClienteController(IUpdateClienteUseCase updateClienteUseCase, IGetListClientesUseCase getListClientesUseCase, IGetClienteUseCase getClienteUseCase, ICreateClienteUseCase createClienteUseCase)
+        public ClienteController(IUpdateClienteUseCase updateClienteUseCase, IGetListClientesUseCase getListClientesUseCase, IGetClienteUseCase getClienteUseCase, ICreateClienteUseCase createClienteUseCase, IDeleteClienteUseCase deleteClienteUseCase)
         {
             _updateClienteUseCase = updateClienteUseCase;
             _getListClientesUseCase = getListClientesUseCase;
             _getClienteUseCase = getClienteUseCase;
             _createClienteUseCase = createClienteUseCase;
+            _deleteClienteUseCase = deleteClienteUseCase;
         }
 
         [HttpGet]
@@ -62,6 +65,16 @@ namespace Petshop.Api.Controllers
 
             var result = _updateClienteUseCase.Execute(request);
             if (result == null) return NotFound();
+            return Ok(result);
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            var request = new UseCaseRequest<int>();
+            request.RequestValue = id;
+            var result = _deleteClienteUseCase.Execute(request);
+            if (!result.Success) return NotFound(result);
             return Ok(result);
         }
     }
